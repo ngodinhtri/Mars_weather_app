@@ -1,0 +1,64 @@
+@import "mixins", "variables";
+
+// variables
+$w: 35px;
+$h: 20px;
+$border-width: 2px;
+
+$w-h-circle: $h * 0.6;
+$s-to-center: ($h - $w-h-circle)/2;
+$toggle-border-radius: $w/2;
+
+$slider-background-color: transparent;
+$slider-background-color-checked: transparent;
+$slider-border-color: $clr-gray;
+$circle-background-color: $clr-gray;
+
+.toggle-switch {
+  display: inline-block;
+  position: relative;
+  @include setWH($w, $h);
+
+  //hide checkbox
+  input {
+    display: none;
+  }
+
+  //background
+  &--slider {
+    position: absolute;
+    cursor: pointer;
+    background: $slider-background-color;
+    @include trbl(0, 0, 0, 0);
+    @include prefix(transition, 0.4s);
+    @include prefix(border-radius, $toggle-border-radius);
+    @include setWH($w, $h);
+    border: $border-width solid $slider-border-color;
+
+    //the circle inside
+    &::before {
+      position: absolute;
+      content: "";
+      background-color: $circle-background-color;
+      @include trbl(50%, null, null, $s-to-center);
+      @include prefix(transform, translateY(-50%));
+      @include prefix(transition, 0.4s);
+      @include setWH($w-h-circle);
+      @include prefix(border-radius, 50%);
+    }
+  }
+  //when checked
+  input:checked + &--slider {
+    background-color: $slider-background-color-checked;
+
+    &::before {
+      @include prefix(
+        transform,
+        translate(
+          $w - ($border-width * 2) - ($s-to-center * 2) - ($w-h-circle),
+          -50%
+        )
+      );
+    }
+  }
+}

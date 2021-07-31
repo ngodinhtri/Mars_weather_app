@@ -1,0 +1,60 @@
+//variables
+$res_mi720: "only screen and (min-width: 740px)"; // >= Tablet
+$res_mi113: "only screen and (min-width: 1113px)"; // PC medium resolution >
+$res_mi740_ma1023: "only screen and (min-width: 740px) and (max-width: 1023pxs)"; // Tablet - PC low resolution
+$res_mi1024_ma1239: "only screen and (min-width: 1024px) and (max-width: 1239px)"; // > PC low resolution
+
+// responsive
+@mixin responsive_mi720 {
+  @media #{$res_mi720} {
+    @content;
+  }
+}
+
+@mixin responsive_mi113 {
+  @media #{$res_mi113} {
+    @content;
+  }
+}
+
+@mixin responsive_mi740_ma1023 {
+  @media #{$res_mi740_ma1023} {
+    @content;
+  }
+}
+
+@mixin responsive_mi1024_ma1239 {
+  @media #{$res_mi1024_ma1239} {
+    @content;
+  }
+}
+
+//prefix
+@mixin prefix($property, $value) {
+  -webkit-#{$property}: $value;
+  -moz-#{$property}: $value;
+  -ms-#{$property}: $value;
+  #{$property}: $value;
+}
+
+//Set top, right, bottom, left properties
+@mixin trbl($t: null, $r: null, $b: null, $l: null) {
+  @if $t != null {
+    top: $t;
+  }
+  @if $r != null {
+    right: $r;
+  }
+  @if $b != null {
+    bottom: $b;
+  }
+  @if $l != null {
+    left: $l;
+  }
+}
+
+//Set width, height
+@mixin setWH($width, $height: $width) {
+  width: $width;
+  height: $height;
+}

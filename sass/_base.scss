@@ -1,0 +1,25 @@
+* {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  line-height: 1.6rem;
+  font-family: "Fira Code", monospace;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
