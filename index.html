@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- google fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- styles -->
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="wrap">
+        <main class="current-weather grid wide">
+          <h1 class="title">LATEST WEATHER AT ELYSIUM PLANTITIA</h1>
+          <div class="row">
+            <div class="current-weather--item --date col l-4">
+              <h2 class="section-title section-title__date">2021</h2>
+              <p class="date--day">June 28</p>
+            </div>
+            <div class="current-weather--item --temp redline col l-4">
+              <h2 class="section-title section-tile__temp">Temperature</h2>
+              <p class="temp--reading">High: 31<sup>o</sup>C</p>
+              <p class="temp--reading">Low: 28<sup>o</sup>C</p>
+            </div>
+
+            <div class="current-weather--item --wind redline col l-4">
+              <lottie-player
+                class="wind-icon"
+                src="https://assets2.lottiefiles.com/private_files/lf30_HWw9jM.json"
+                background="transparent"
+                speed="1"
+                style="width: 80px; height: 80px"
+                loop
+                autoplay
+              ></lottie-player>
+              <span>
+                <h2 class="section-title section-tile__wind">Wind</h2>
+                <p class="wind--speed">1.4m/s</p>
+              </span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="info col l-8">
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Laborum temporibus iure amet aliquid dolor voluptas tempora
+                labore animi nesciunt ad. Magni vero iusto delectus commodi aut
+                repellendus ut vel temporibus?
+              </p>
+              <p>
+                This is only a part of InSight's mission.
+                <a href="#" class="info--link">Click here</a> to find out more.
+              </p>
+            </div>
+
+            <div class="unit-toggle col l-4">
+              <div class="--item">
+                <label for="cf"><sup>o</sup>C</label>
+                <!-- checked => cel, otherwise fah -->
+                <div class="toggle-switch">
+                  <input type="checkbox" id="cf" />
+                  <label class="toggle-switch--slider" for="cf"></label>
+                </div>
+                <label for="cf"><sup>o</sup>F</label>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+
+      <div class="previous-weather">
+        <h2 class="previous-weather--title">Previous 7 days</h2>
+        <div class="previous-weather--item">
+          <h3 class="previous-year">2021</h3>
+          <p class="previous-date">June 29</p>
+          <p class="previous-temp -high">High: 31<sup>o</sup>C</p>
+          <p class="previous-temp -low">Low: 28<sup>o</sup>C</p>
+          <a href="#" class="btn previous-more-info">more info</a>
+        </div>
+      </div>
+    </div>
+    <!-- scripts -->
+    <script src="scripts/index.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  </body>
+</html>
