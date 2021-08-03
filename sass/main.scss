@@ -1,13 +1,20 @@
 @import "base", "toggle_switch_button", "variables", "mixins";
 
 :root {
-  --fs-h1: 5rem;
-  --fs-h2: 2.6rem;
-  --fs-body: 1.3rem;
+  --fs-xl: 4rem;
+  --fs-h1: 3rem;
+  --fs-h2: 2rem;
+  --fs-body: 1.6rem;
+}
+html {
+  @include setWH(100%);
 }
 
-#main {
+body {
+  position: absolute;
   color: $clr-light;
+  font-size: var(--fs-body);
+  @include trbl(0, 0, 0, 0);
   background-image: url(../img/background_mars.jpg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -19,5 +26,61 @@ a {
   color: $clr-accent;
   &:hover {
     color: $clr-accent-dark;
+  }
+}
+
+#wrapper {
+  height: 100%;
+  overflow: hidden;
+}
+#main {
+  height: 100%;
+  overflow-y: auto;
+}
+.current-weather {
+  @media only screen and (min-width: 768px) {
+    background: rgba($color: #000000, $alpha: 0.7);
+  }
+  padding: 10px 20px;
+
+  &::before {
+    content: " ";
+    position: absolute;
+    background: rgba($color: #000000, $alpha: 0.7);
+    @include trbl(0, 0, 0, 0);
+    z-index: -1;
+    @media only screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  &--title {
+    color: $clr-accent;
+    font-weight: $fw-light;
+    font-size: var(--fs-h2);
+  }
+
+  &--detail {
+    & .--date-year,
+    .--temp-title,
+    .--wind-title {
+      font-size: var(--fs-xl);
+    }
+
+    & .--date-day,
+    .--temp-reading,
+    .--wind-speed {
+      font-size: var(--fs-h2);
+    }
+  }
+
+  &--more-info {
+    .unit-toggle {
+      font-size: 2rem;
+
+      .toggle-switch {
+        margin: 0 10px;
+      }
+    }
   }
 }
