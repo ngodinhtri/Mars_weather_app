@@ -19,23 +19,24 @@
   <body>
     <div id="wrapper">
       <div id="main">
-        <!-- Current weather -->
-        <div class="current-weather container">
+        <!--Start current weather -->
+        <div class="current-weather container mt-md-5">
           <h1 class="current-weather--title">
             LATEST WEATHER AT ELYSIUM PLANTITA
           </h1>
 
-          <div class="current-weather--detail row">
-            <div class="--date col col-12 col-md-4 mt-3 mt-md-0">
+          <!--Start weather today -->
+          <div class="current-weather--detail row mt-md-4">
+            <div class="--date --item col col-12 col-md-4 mt-3 mt-md-0">
               <h1 class="--date-year">Sol 377</h1>
               <p class="--date-day">December 28</p>
             </div>
-            <div class="--temp col col-12 col-md-4 mt-3 mt-md-0">
+            <div class="--temp --item col col-12 col-md-4 mt-3 mt-md-0">
               <h2 class="--temp-title">Temperature</h2>
               <p class="--temp-reading __high">High: -20<sup>o</sup>C</p>
               <p class="--temp-reading __low">Low: -98<sup>o</sup>C</p>
             </div>
-            <div class="--wind col col-12 col-md-4 mt-3 mt-md-0 d-flex">
+            <div class="--wind --item col col-12 col-md-4 mt-3 mt-md-0 d-flex">
               <div class="--wind-detail order-md-2">
                 <h2 class="--wind-title">Wind</h2>
                 <p class="--wind-speed">75 kph</p>
@@ -51,10 +52,12 @@
               ></lottie-player>
             </div>
           </div>
+          <!--End weather today -->
 
-          <div class="current-weather--more-info row mt-5 mt-md-0">
+          <!-- Start more info -->
+          <div class="current-weather--more-info row mt-5">
             <div class="content col col-12 col-md-8">
-              <p>
+              <p style="text-align: justify">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
                 optio quae? Quae dolorum praesentium vero repudiandae accusamus
                 voluptas perferendis animi, eligendi itaque ratione natus? Neque
@@ -65,76 +68,97 @@
                 <a href="#" class="info--link">Click here</a> to find out more.
               </p>
             </div>
-            <!-- The toggle button changes units -->
+            <!-- Start the toggle button changes units -->
             <div
-              class="unit-toggle d-flex align-items-center col col-12 col-md-4"
+              class="
+                unit-toggle
+                d-flex
+                align-items-center align-items-md-end
+                justify-content-md-end
+                col col-12 col-md-4
+              "
             >
-              <label for="cf" value="Cel"><sup>o</sup>C</label>
+              <div class="wrap d-flex align-items-center">
+                <label for="cf" value="Cel"><sup>o</sup>C</label>
 
-              <label class="toggle-switch" for="cf">
-                <input type="checkbox" id="cf" style="display: none" />
-                <div class="toggle-switch--slider"></div>
-              </label>
-              <label for="cf" value="Fah"><sup>o</sup>F</label>
+                <label class="toggle-switch" for="cf">
+                  <input type="checkbox" id="cf" style="display: none" />
+                  <div class="toggle-switch--slider"></div>
+                </label>
+                <label for="cf" value="Fah"><sup>o</sup>F</label>
+              </div>
             </div>
+            <!-- End the toggle button changes units -->
+          </div>
+          <!-- End more info -->
+        </div>
+        <!--End current weather -->
+
+        <!--Start previous weather -->
+        <div id="previous-weather" class="previous-weather d-none d-md-block">
+          <!-- Expand arrow -->
+          <div class="expand-arrow" id="show-previous-weather">
+            <div class="arrow">&uarr;</div>
+          </div>
+
+          <div class="container">
+            <h2 class="previous-weather--title">Previous 7 days</h2>
+            <!-- Start list 7 days previous weather-->
+            <div class="row previous-weather-list">
+              <div class="previous-weather--item col-md">
+                <h3 class="previous-year">Sol 377</h3>
+                <p class="previous-date">June 29</p>
+                <p class="previous-temp -high">High: 31<sup>o</sup>C</p>
+                <p class="previous-temp -low">Low: 28<sup>o</sup>C</p>
+                <a href="#" class="previous-more-info">more info</a>
+              </div>
+              <div class="previous-weather--item col-md">
+                <h3 class="previous-year">Sol 377</h3>
+                <p class="previous-date">June 29</p>
+                <p class="previous-temp -high">High: 31<sup>o</sup>C</p>
+                <p class="previous-temp -low">Low: 28<sup>o</sup>C</p>
+                <a href="#" class="previous-more-info">more info</a>
+              </div>
+              <div class="previous-weather--item col-md">
+                <h3 class="previous-year">Sol 377</h3>
+                <p class="previous-date">June 29</p>
+                <p class="previous-temp -high">High: 31<sup>o</sup>C</p>
+                <p class="previous-temp -low">Low: 28<sup>o</sup>C</p>
+                <a href="#" class="previous-more-info">more info</a>
+              </div>
+              <div class="previous-weather--item col-md">
+                <h3 class="previous-year">Sol 377</h3>
+                <p class="previous-date">June 29</p>
+                <p class="previous-temp -high">High: 31<sup>o</sup>C</p>
+                <p class="previous-temp -low">Low: 28<sup>o</sup>C</p>
+                <a href="#" class="previous-more-info">more info</a>
+              </div>
+              <div class="previous-weather--item col-md">
+                <h3 class="previous-year">Sol 377</h3>
+                <p class="previous-date">June 29</p>
+                <p class="previous-temp -high">High: 31<sup>o</sup>C</p>
+                <p class="previous-temp -low">Low: 28<sup>o</sup>C</p>
+                <a href="#" class="previous-more-info">more info</a>
+              </div>
+              <div class="previous-weather--item col-md">
+                <h3 class="previous-year">Sol 377</h3>
+                <p class="previous-date">June 29</p>
+                <p class="previous-temp -high">High: 31<sup>o</sup>C</p>
+                <p class="previous-temp -low">Low: 28<sup>o</sup>C</p>
+                <a href="#" class="previous-more-info">more info</a>
+              </div>
+              <div class="previous-weather--item col-md">
+                <h3 class="previous-year">Sol 377</h3>
+                <p class="previous-date">June 29</p>
+                <p class="previous-temp -high">High: 31<sup>o</sup>C</p>
+                <p class="previous-temp -low">Low: 28<sup>o</sup>C</p>
+                <a href="#" class="previous-more-info">more info</a>
+              </div>
+            </div>
+            <!-- End list 7 days previous weather-->
           </div>
         </div>
-
-        <!-- Previous weather -->
-        <div class="previous-weather container d-none d-md-block">
-          <h2 class="previous-weather--title text-center">Previous 7 days</h2>
-          <div class="row">
-            <div class="previous-weather--item col-md">
-              <h3 class="previous-year">2021</h3>
-              <p class="previous-date">June 29</p>
-              <p class="previous-temp -high">High: 31<sup>o</sup>C</p>
-              <p class="previous-temp -low">Low: 28<sup>o</sup>C</p>
-              <a href="#" class="btn previous-more-info">more info</a>
-            </div>
-            <div class="previous-weather--item col-md">
-              <h3 class="previous-year">2021</h3>
-              <p class="previous-date">June 29</p>
-              <p class="previous-temp -high">High: 31<sup>o</sup>C</p>
-              <p class="previous-temp -low">Low: 28<sup>o</sup>C</p>
-              <a href="#" class="btn previous-more-info">more info</a>
-            </div>
-            <div class="previous-weather--item col-md">
-              <h3 class="previous-year">2021</h3>
-              <p class="previous-date">June 29</p>
-              <p class="previous-temp -high">High: 31<sup>o</sup>C</p>
-              <p class="previous-temp -low">Low: 28<sup>o</sup>C</p>
-              <a href="#" class="btn previous-more-info">more info</a>
-            </div>
-            <div class="previous-weather--item col-md">
-              <h3 class="previous-year">2021</h3>
-              <p class="previous-date">June 29</p>
-              <p class="previous-temp -high">High: 31<sup>o</sup>C</p>
-              <p class="previous-temp -low">Low: 28<sup>o</sup>C</p>
-              <a href="#" class="btn previous-more-info">more info</a>
-            </div>
-            <div class="previous-weather--item col-md">
-              <h3 class="previous-year">2021</h3>
-              <p class="previous-date">June 29</p>
-              <p class="previous-temp -high">High: 31<sup>o</sup>C</p>
-              <p class="previous-temp -low">Low: 28<sup>o</sup>C</p>
-              <a href="#" class="btn previous-more-info">more info</a>
-            </div>
-            <div class="previous-weather--item col-md">
-              <h3 class="previous-year">2021</h3>
-              <p class="previous-date">June 29</p>
-              <p class="previous-temp -high">High: 31<sup>o</sup>C</p>
-              <p class="previous-temp -low">Low: 28<sup>o</sup>C</p>
-              <a href="#" class="btn previous-more-info">more info</a>
-            </div>
-            <div class="previous-weather--item col-md">
-              <h3 class="previous-year">2021</h3>
-              <p class="previous-date">June 29</p>
-              <p class="previous-temp -high">High: 31<sup>o</sup>C</p>
-              <p class="previous-temp -low">Low: 28<sup>o</sup>C</p>
-              <a href="#" class="btn previous-more-info">more info</a>
-            </div>
-          </div>
-        </div>
+        <!--Start previous weather -->
       </div>
     </div>
 

@@ -1,18 +1,20 @@
 @import "base", "toggle_switch_button", "variables", "mixins";
 
+// variables
 :root {
-  --fs-xl: 4rem;
-  --fs-h1: 3rem;
+  --fs-xl: 2rem;
+  --fs-h1: 4rem;
   --fs-h2: 2rem;
   --fs-body: 1.6rem;
 }
+
 html {
   @include setWH(100%);
 }
 
 body {
   position: absolute;
-  color: $clr-light;
+  color: $clr-gray;
   font-size: var(--fs-body);
   @include trbl(0, 0, 0, 0);
   background-image: url(../img/background_mars.jpg);
@@ -33,15 +35,17 @@ a {
   height: 100%;
   overflow: hidden;
 }
+
 #main {
   height: 100%;
   overflow-y: auto;
 }
 .current-weather {
+  padding: 10px 20px;
+
   @media only screen and (min-width: 768px) {
     background: rgba($color: #000000, $alpha: 0.7);
   }
-  padding: 10px 20px;
 
   &::before {
     content: " ";
@@ -49,22 +53,24 @@ a {
     background: rgba($color: #000000, $alpha: 0.7);
     @include trbl(0, 0, 0, 0);
     z-index: -1;
+
     @media only screen and (min-width: 768px) {
       display: none;
     }
   }
 
-  &--title {
+  .current-weather--title {
     color: $clr-accent;
     font-weight: $fw-light;
-    font-size: var(--fs-h2);
+    font-size: var(--fs-xl);
   }
 
-  &--detail {
+  .current-weather--detail {
     & .--date-year,
     .--temp-title,
     .--wind-title {
-      font-size: var(--fs-xl);
+      color: $clr-light;
+      font-size: var(--fs-h1);
     }
 
     & .--date-day,
@@ -74,7 +80,7 @@ a {
     }
   }
 
-  &--more-info {
+  .current-weather--more-info {
     .unit-toggle {
       font-size: 2rem;
 
@@ -82,5 +88,264 @@ a {
         margin: 0 10px;
       }
     }
+  }
+}
+
+// responsive >= tablet
+@include responsive_mi768 {
+  :root {
+    --fs-xl: 3rem;
+    --fs-h1: 3rem;
+    --fs-h2: 1.8rem;
+    --fs-body: 1.6rem;
+  }
+
+  .current-weather {
+    border-radius: 15px;
+
+    .current-weather--title {
+      letter-spacing: 0.1rem;
+    }
+
+    .current-weather--detail {
+      & .--date-year,
+      .--temp-title,
+      .--wind-title {
+        line-height: var(--fs-xl);
+      }
+
+      & .--date-day,
+      .--temp-reading,
+      .--wind-speed {
+        line-height: var(--fs-h2);
+      }
+
+      & .--date {
+        & .--date-day {
+          font-weight: $fw-light;
+        }
+      }
+
+      & .--wind {
+        display: flex;
+        align-items: center;
+
+        & .--wind-detail {
+          margin-left: 10px;
+        }
+
+        & .--wind-speed {
+          color: $clr-light;
+        }
+      }
+    }
+
+    & .--item:not(:first-child) {
+      position: relative;
+      padding: 0 10px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        transform: translateX(-100%);
+        @include setWH(5px, 100%);
+        background-color: $clr-accent-dark;
+      }
+    }
+
+    .current-weather--more-info {
+      margin-top: 30px;
+
+      .unit-toggle {
+        font-size: 2rem;
+        margin: 0 0 10px;
+
+        .toggle-switch {
+          margin: 0 10px;
+        }
+      }
+    }
+  }
+
+  .previous-weather {
+    position: fixed;
+    @include trbl(null, 0, 0, 0);
+    background-color: $clr-light;
+    color: $clr-dark;
+    border-radius: 15px 15px 0 0;
+    transform: translateY(65%);
+    transition: 0.75s ease-in-out;
+    // transparent selection
+    ::-webkit-selection {
+      background-color: transparent;
+    }
+    ::-moz-selection {
+      background-color: transparent;
+    }
+    ::selection {
+      background-color: transparent;
+    }
+
+    .expand-arrow {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -95%);
+      background-color: $clr-light;
+      @include setWH(200px, 40px);
+      @include prefix(clip-path, polygon(50% 0, 100% 100%, 0 100%));
+      text-align: center;
+
+      .arrow {
+        font-size: var(--fs-h1);
+        font-weight: $fw-bold;
+        transition: 0.75s ease-in-out;
+      }
+    }
+
+    .previous-weather--title {
+      width: 100%;
+      text-align: center;
+      font-size: var(--fs-h1);
+      font-weight: $fw-light;
+      color: $clr-accent-dark;
+      margin: 30px 0;
+      white-space: nowrap;
+      @include prefix(transition, all ease-in-out 0.75s);
+    }
+
+    .previous-weather-list {
+      margin-bottom: 20px;
+
+      .previous-weather--item {
+        .previous-year {
+          font-size: var(--fs-h2);
+          line-height: var(--fs-h2);
+          font-weight: $fw-bold;
+        }
+        .previous-date {
+          font-size: var(--fs-body);
+          line-height: var(--fs-body);
+          font-weight: $fw-light;
+        }
+        .previous-temp {
+          margin-bottom: 5px;
+          font-size: var(--fs-body);
+          line-height: var(--fs-body);
+        }
+        .previous-more-info {
+          display: block;
+          @include setWH(75%, 26px);
+          line-height: 26px;
+          font-size: 10px;
+          text-align: center;
+          outline: none;
+          border: none;
+          text-decoration: none;
+          background-color: $clr-black;
+          color: $clr-light;
+          margin: 10px 0;
+          border-radius: 15px;
+        }
+      }
+    }
+  }
+
+  // show previous weather
+  #previous-weather.show-weather {
+    transform: translateY(0);
+
+    .expand-arrow {
+      .arrow {
+        @include prefix(transform, rotate(0.5turn));
+      }
+    }
+
+    .previous-weather--title {
+      width: 0;
+      margin: 50px 0 30px;
+    }
+
+    .previous-weather--item {
+      opacity: 0;
+      animation: slideUp 0.75s ease-in-out forwards;
+      // set animation delay
+      $delay-time: 100ms;
+      @for $i from 1 through 7 {
+        &:nth-child(#{$i}) {
+          $delay-time: $delay-time + 50ms;
+          animation-delay: $delay-time;
+        }
+      }
+    }
+  }
+}
+// responsive >= PC
+@include responsive_mi1024 {
+  :root {
+    --fs-xl: 4rem;
+    --fs-h1: 3rem;
+    --fs-h2: 2rem;
+    --fs-body: 1.6rem;
+  }
+
+  .container {
+    width: 984px;
+  }
+
+  .current-weather {
+    .current-weather--detail {
+      & .--date-year {
+        font-size: var(--fs-xl);
+      }
+
+      & .--date {
+        & .--date-day {
+          font-size: var(--fs-h1);
+          font-weight: $fw-light;
+        }
+      }
+
+      & .--wind {
+        display: flex;
+        align-items: center;
+
+        & .--wind-detail {
+          margin-left: 10px;
+        }
+
+        & .--wind-speed {
+          color: $clr-light;
+        }
+      }
+    }
+  }
+
+  .previous-weather {
+    .previous-weather-list {
+      .previous-weather--item {
+        .previous-temp {
+          font-size: var(--fs-h2);
+          line-height: var(--fs-h2);
+        }
+        .previous-more-info {
+          width: 65%;
+          font-weight: $fw-bold;
+        }
+      }
+    }
+  }
+}
+
+// Animations
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(80%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
