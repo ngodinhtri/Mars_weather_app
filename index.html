@@ -28,18 +28,27 @@
           <!--Start weather today -->
           <div class="current-weather--detail row mt-md-4">
             <div class="--date --item col col-12 col-md-4 mt-3 mt-md-0">
-              <h1 class="--date-year">Sol 377</h1>
-              <p class="--date-day">December 28</p>
+              <h1 class="--date-year">Sol <span data-current-sol></span></h1>
+              <p class="--date-day" data-current-date></p>
             </div>
             <div class="--temp --item col col-12 col-md-4 mt-3 mt-md-0">
               <h2 class="--temp-title">Temperature</h2>
-              <p class="--temp-reading __high">High: -20<sup>o</sup>C</p>
-              <p class="--temp-reading __low">Low: -98<sup>o</sup>C</p>
+              <p class="--temp-reading __high">
+                High: <span data-current-temp-high></span><sup>o</sup
+                ><span data-temp-unit></span>
+              </p>
+              <p class="--temp-reading __low">
+                Low: <span data-current-temp-low></span><sup>o</sup
+                ><span data-temp-unit></span>
+              </p>
             </div>
             <div class="--wind --item col col-12 col-md-4 mt-3 mt-md-0 d-flex">
               <div class="--wind-detail order-md-2">
                 <h2 class="--wind-title">Wind</h2>
-                <p class="--wind-speed">75 kph</p>
+                <p class="--wind-speed">
+                  <span data-current-wind-speed></span>
+                  <span data-wind-unit></span>
+                </p>
               </div>
               <lottie-player
                 class="wind-icon d-none d-md-block order-md-1"
@@ -82,7 +91,12 @@
                 <label for="cf" value="Cel"><sup>o</sup>C</label>
 
                 <label class="toggle-switch" for="cf">
-                  <input type="checkbox" id="cf" style="display: none" />
+                  <input
+                    type="checkbox"
+                    id="cf"
+                    style="display: none"
+                    data-unit-toggle
+                  />
                   <div class="toggle-switch--slider"></div>
                 </label>
                 <label for="cf" value="Fah"><sup>o</sup>F</label>
@@ -104,57 +118,7 @@
           <div class="container">
             <h2 class="previous-weather--title">Previous 7 days</h2>
             <!-- Start list 7 days previous weather-->
-            <div class="row previous-weather-list">
-              <div class="previous-weather--item col-md">
-                <h3 class="previous-year">Sol 377</h3>
-                <p class="previous-date">June 29</p>
-                <p class="previous-temp -high">High: 31<sup>o</sup>C</p>
-                <p class="previous-temp -low">Low: 28<sup>o</sup>C</p>
-                <a href="#" class="previous-more-info">more info</a>
-              </div>
-              <div class="previous-weather--item col-md">
-                <h3 class="previous-year">Sol 377</h3>
-                <p class="previous-date">June 29</p>
-                <p class="previous-temp -high">High: 31<sup>o</sup>C</p>
-                <p class="previous-temp -low">Low: 28<sup>o</sup>C</p>
-                <a href="#" class="previous-more-info">more info</a>
-              </div>
-              <div class="previous-weather--item col-md">
-                <h3 class="previous-year">Sol 377</h3>
-                <p class="previous-date">June 29</p>
-                <p class="previous-temp -high">High: 31<sup>o</sup>C</p>
-                <p class="previous-temp -low">Low: 28<sup>o</sup>C</p>
-                <a href="#" class="previous-more-info">more info</a>
-              </div>
-              <div class="previous-weather--item col-md">
-                <h3 class="previous-year">Sol 377</h3>
-                <p class="previous-date">June 29</p>
-                <p class="previous-temp -high">High: 31<sup>o</sup>C</p>
-                <p class="previous-temp -low">Low: 28<sup>o</sup>C</p>
-                <a href="#" class="previous-more-info">more info</a>
-              </div>
-              <div class="previous-weather--item col-md">
-                <h3 class="previous-year">Sol 377</h3>
-                <p class="previous-date">June 29</p>
-                <p class="previous-temp -high">High: 31<sup>o</sup>C</p>
-                <p class="previous-temp -low">Low: 28<sup>o</sup>C</p>
-                <a href="#" class="previous-more-info">more info</a>
-              </div>
-              <div class="previous-weather--item col-md">
-                <h3 class="previous-year">Sol 377</h3>
-                <p class="previous-date">June 29</p>
-                <p class="previous-temp -high">High: 31<sup>o</sup>C</p>
-                <p class="previous-temp -low">Low: 28<sup>o</sup>C</p>
-                <a href="#" class="previous-more-info">more info</a>
-              </div>
-              <div class="previous-weather--item col-md">
-                <h3 class="previous-year">Sol 377</h3>
-                <p class="previous-date">June 29</p>
-                <p class="previous-temp -high">High: 31<sup>o</sup>C</p>
-                <p class="previous-temp -low">Low: 28<sup>o</sup>C</p>
-                <a href="#" class="previous-more-info">more info</a>
-              </div>
-            </div>
+            <div class="row previous-weather-list" data-previous-sols></div>
             <!-- End list 7 days previous weather-->
           </div>
         </div>
@@ -162,12 +126,23 @@
       </div>
     </div>
 
+    <template data-previous-sol-template>
+      <div class="previous-weather--item col-md">
+        <h3 class="previous-year">Sol <span data-sol></span></h3>
+        <p class="previous-date" data-date></p>
+        <p class="previous-temp -high">
+          High: <span data-temp-high></span><sup>o</sup
+          ><span data-temp-unit></span>
+        </p>
+        <p class="previous-temp -low">
+          Low: <span data-temp-low></span><sup>o</sup
+          ><span data-temp-unit></span>
+        </p>
+        <a href="#" class="previous-more-info" data-more-info-btn>more info</a>
+      </div>
+    </template>
+
     <!-- scripts -->
-    <script>
-      Window.addEventListener("scroll", function () {
-        document.body.requestFullscreen();
-      });
-    </script>
     <script src="scripts/index.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
