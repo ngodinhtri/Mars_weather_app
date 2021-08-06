@@ -8,6 +8,6 @@ _Using HTML, SASS, JS, Bootstrap._
 * SCSS tutorial(Vietnamese): [Tutorial](https://hocwebchuan.com/tutorial/scss/)
 * Javascript tutorial: [javascript.info](https://javascript.info/)
 
-#Demo live
-https://ngodinhtri.github.io/Mars_weather_app/
+#Demo live:
+>https://ngodinhtri.github.io/Mars_weather_app/
 
